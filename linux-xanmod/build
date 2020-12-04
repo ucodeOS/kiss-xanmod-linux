@@ -1,11 +1,11 @@
 #!/bin/sh -e
 
 # Patch it
-patch -Np1 -i patch-5.9.12-xanmod1
+patch -Np1 -i sign-file-full-functionality-with-modern-LibreSSL.diff
 
 # Set the kernel up for success!
-scripts/setlocalversion --save-scmversion
-make olddefconfig
+#scripts/setlocalversion --save-scmversion
+#make olddefconfig
 make kernelrelease > version
 
 # Useful variables
