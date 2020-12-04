@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 # Patch it
-patch -p1 < patch-5.9.12-xanmod1
+patch -Np1 < patch-5.9.12-xanmod1
 
 # Set the kernel up for success!
 scripts/setlocalversion --save-scmversion
