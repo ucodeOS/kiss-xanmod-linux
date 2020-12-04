@@ -5,7 +5,7 @@ patch -Np1 -i patch-5.9.12-xanmod1
 
 # Set the kernel up for success!
 scripts/setlocalversion --save-scmversion
-make x86_64_defconfig
+make olddefconfig
 make kernelrelease > version
 
 # Useful variables
