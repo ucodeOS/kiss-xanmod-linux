@@ -1,11 +1,13 @@
 #!/bin/sh -e
 
 # Patch it
-patch -Np1 -i sign-file-full-functionality-with-modern-LibreSSL.diff
+patch -Np1 -i libressl
 
 # Set the kernel up for success!
 #scripts/setlocalversion --save-scmversion
-#make olddefconfig
+
+make prepare
+make oldconfig
 make kernelrelease > version
 
 # Useful variables
@@ -14,7 +16,7 @@ builddir="$modulesdir/build"
 
 # Make that bad boy!
 echo "Making linux-$2"
-make -j "$(nproc)"
+make -j 12
 
 echo "Installing modules..."
 make INSTALL_MOD_PATH="$1/usr" modules_install
